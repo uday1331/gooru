@@ -1,4 +1,28 @@
 import React from "react";
-import { Flex } from "@chakra-ui/core";
+import { Grid } from "@chakra-ui/core";
+import { MdDashboard, MdSettings, MdGamepad } from "react-icons/md";
 
-export const Employee: React.FC = () => <Flex>Employee's side</Flex>;
+import { NavBar } from "../navbar";
+
+const navItemList = [
+  {
+    name: "Dashboard",
+    logo: <MdDashboard size={30} />,
+  },
+  {
+    name: "Stories",
+    logo: <MdGamepad size={30} />,
+  },
+  {
+    name: "Settings",
+    logo: <MdSettings size={30} />,
+  },
+];
+
+export const Employee: React.FC = () => {
+  return (
+    <Grid templateColumns="20% 80%">
+      <NavBar navItemList={navItemList} />
+    </Grid>
+  );
+};
