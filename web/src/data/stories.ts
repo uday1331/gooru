@@ -10,19 +10,19 @@ import {
 } from "./scenes";
 
 const dummyStory1: Story = {
-  name: "Resolving conflicts in the workplaces",
+  title: "Resolving conflicts in the workplaces",
   creator: dummyUser1,
   assigneeList: [dummyUser3],
   scenes: [dummyScene1, dummyScene2, dummyScene3, dummyScene4, dummyScene5],
-  lastUpdated: "3 hours ago",
+  lastUpdated: new Date(),
 };
 
 const dummyStory2: Story = {
-  name: "Introduction to compliance",
+  title: "Introduction to compliance",
   creator: dummyUser2,
   assigneeList: [dummyUser3],
   scenes: [dummyScene1, dummyScene2, dummyScene3, dummyScene4, dummyScene6],
-  lastUpdated: "1 day ago",
+  lastUpdated: new Date(),
 };
 
 export { dummyStory1, dummyStory2 };
