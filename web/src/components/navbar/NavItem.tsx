@@ -2,7 +2,7 @@ import React from "react";
 import { Flex, Text } from "@chakra-ui/core";
 import { Link, useLocation } from "react-router-dom";
 
-import { NavItemDetails } from "./NavBar";
+import { NavItemDetails } from "../template/Template";
 
 interface NavItemProps {
   details: NavItemDetails;
@@ -22,15 +22,10 @@ export const NavItem: React.FC<NavItemProps> = ({
         p={3}
         pl={5}
         backgroundColor={pathname === route ? "indigo" : "white"}
+        color={pathname === route ? "white" : "indigo"}
       >
-        <Flex p={0} color={pathname === route ? "white" : "indigo"}>
-          {logo}
-        </Flex>
-        <Text
-          fontSize="md"
-          mx={2}
-          color={pathname === route ? "white" : "indigo"}
-        >
+        <Flex p={0}>{logo}</Flex>
+        <Text fontSize="md" mx={2}>
           {name}
         </Text>
       </Flex>

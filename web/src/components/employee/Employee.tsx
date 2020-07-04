@@ -1,9 +1,8 @@
 import React from "react";
-import { Grid, Flex } from "@chakra-ui/core";
 import { MdDashboard, MdSettings, MdGamepad } from "react-icons/md";
-import { Route } from "react-router-dom";
 
-import { NavBar } from "../navbar";
+import { Template } from "../template";
+import { Stories } from "./stories";
 
 const navItemList = [
   {
@@ -15,7 +14,7 @@ const navItemList = [
   {
     name: "Stories",
     logo: <MdGamepad size={30} />,
-    component: <>Stories</>,
+    component: <Stories />,
     route: "/employee/stories",
   },
   {
@@ -27,16 +26,5 @@ const navItemList = [
 ];
 
 export const Employee: React.FC = () => {
-  return (
-    <Grid templateColumns="20% 80%">
-      <NavBar navItemList={navItemList} />
-      <Flex>
-        {navItemList.map(({ route, component }, index) => (
-          <Route key={index} path={route}>
-            {component}
-          </Route>
-        ))}
-      </Flex>
-    </Grid>
-  );
+  return <Template navItemList={navItemList} />;
 };
