@@ -14,7 +14,7 @@ const StoriesHeading: React.FC = () => (
     <Text fontSize="3xl" p={0}>
       Stories<span style={{ color: "red" }}>.</span>
     </Text>
-    <Button backgroundColor="indigo" color="white" borderRadius={0}>
+    <Button variantColor="indigo" borderRadius={0}>
       Create story
     </Button>
   </Flex>
@@ -23,7 +23,7 @@ const StoriesHeading: React.FC = () => (
 const FilterBar: React.FC = () => (
   <Flex direction="row" justify="space-between" w="100%" mt={8}>
     <SearchBar placeholder="The story I made yesterday" />
-    <Flex direction="row" align="center">
+    <Flex direction="row" align="center" cursor={"pointer"}>
       <Text color="indigo">Sort by </Text>
       <MdArrowDropDown />
     </Flex>
@@ -38,7 +38,7 @@ export const Stories: React.FC = () => {
       <FilterBar />
       <Box>
         {listOfStories.map((story, index) => (
-          <Box key={index}>
+          <Box key={index} my={3}>
             <StoryCard story={story} />
           </Box>
         ))}

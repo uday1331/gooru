@@ -21,8 +21,8 @@ export const NavItem: React.FC<NavItemProps> = ({
         align="center"
         p={3}
         pl={5}
-        backgroundColor={pathname === route ? "indigo" : "white"}
-        color={pathname === route ? "white" : "indigo"}
+        backgroundColor={pathname === route ? "indigo.500" : "white"}
+        color={pathname === route ? "white" : "indigo.500"}
       >
         <Flex p={0}>{logo}</Flex>
         <Text fontSize="md" mx={2}>
