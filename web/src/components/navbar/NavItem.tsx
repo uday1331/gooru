@@ -21,10 +21,16 @@ export const NavItem: React.FC<NavItemProps> = ({
         align="center"
         m={0}
         w="100%"
-        backgroundColor={pathname === route ? "black" : "white"}
+        backgroundColor={pathname === route ? "indigo" : "white"}
       >
-        {logo}
-        <Heading size="sm" mx={2}>
+        <Flex p={0} color={pathname === route ? "white" : "indigo"}>
+          {logo}
+        </Flex>
+        <Heading
+          size="sm"
+          mx={2}
+          color={pathname === route ? "white" : "indigo"}
+        >
           {name}
         </Heading>
       </Flex>
