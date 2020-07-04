@@ -6,6 +6,8 @@ import { NavItem } from "./NavItem";
 export interface NavItemDetails {
   name: string;
   logo: React.ReactNode;
+  route: string;
+  component: React.ReactNode;
 }
 
 interface NavBarProps {

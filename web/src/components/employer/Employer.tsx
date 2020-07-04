@@ -15,21 +15,25 @@ const navItemList = [
     name: "Dashboard",
     logo: <MdDashboard size={30} />,
     component: <>Dashboard</>,
+    route: "/employer/dashboard",
   },
   {
     name: "Stories",
     logo: <MdGamepad size={30} />,
     component: <>Stories</>,
+    route: "/employer/stories",
   },
   {
     name: "Track",
     logo: <MdAssessment size={30} />,
     component: <>Track</>,
+    route: "/employer/track",
   },
   {
     name: "Settings",
     logo: <MdSettings size={30} />,
     component: <>Settings</>,
+    route: "/employer/settings",
   },
 ];
 
@@ -38,8 +42,8 @@ export const Employer: React.FC = () => {
     <Grid templateColumns="20% 80%">
       <NavBar navItemList={navItemList} />
       <Flex>
-        {navItemList.map(({ name, component }, index) => (
-          <Route key={index} path={`/employer/${name.toLowerCase()}`}>
+        {navItemList.map(({ route, component }, index) => (
+          <Route key={index} path={route}>
             {component}
           </Route>
         ))}
