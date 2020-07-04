@@ -1,7 +1,5 @@
 import React from "react";
 
-function App() {
-  return <div className="App">Gooru</div>;
-}
+const App: React.FC = () => <div>Gooru</div>;
 
 export default App;
