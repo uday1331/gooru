@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Heading } from "@chakra-ui/core";
+import { Flex, Text } from "@chakra-ui/core";
 import { Link, useLocation } from "react-router-dom";
 
 import { NavItemDetails } from "./NavBar";
@@ -14,25 +14,25 @@ export const NavItem: React.FC<NavItemProps> = ({
   const { pathname } = useLocation();
 
   return (
-    <Link to={route}>
+    <Link to={route} style={{ width: "100%" }}>
       <Flex
         direction="row"
         justify="start"
         align="center"
-        m={0}
-        w="100%"
+        p={3}
+        pl={5}
         backgroundColor={pathname === route ? "indigo" : "white"}
       >
         <Flex p={0} color={pathname === route ? "white" : "indigo"}>
           {logo}
         </Flex>
-        <Heading
-          size="sm"
+        <Text
+          fontSize="md"
           mx={2}
           color={pathname === route ? "white" : "indigo"}
         >
           {name}
-        </Heading>
+        </Text>
       </Flex>
     </Link>
   );
