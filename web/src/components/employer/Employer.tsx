@@ -7,6 +7,7 @@ import {
 } from "react-icons/md";
 
 import { Template } from "../template";
+import { Stories } from "./stories";
 
 const navItemList = [
   {
@@ -18,7 +19,7 @@ const navItemList = [
   {
     name: "Stories",
     logo: <MdGamepad size={30} />,
-    component: <>Stories</>,
+    component: <Stories />,
     route: "/employer/stories",
   },
   {

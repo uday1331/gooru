@@ -1,10 +1,11 @@
 import React from "react";
-import { Flex, Text, Button } from "@chakra-ui/core";
+import { Flex, Text, Button, Box } from "@chakra-ui/core";
 import { MdArrowDropDown } from "react-icons/md";
 
 import { dummyStory1, dummyStory2 } from "../../../data";
 import { Story } from "../../../types/story";
-import { SearchBar } from "../../.";
+import { SearchBar } from "../../index";
+import { StoryCard } from "./StoryCard.jsx";
 
 const listOfStories: Story[] = [dummyStory1, dummyStory2];
 
@@ -35,6 +36,13 @@ export const Stories: React.FC = () => {
     <Flex py={3} px={5} width="100%" direction="column">
       <StoriesHeading />
       <FilterBar />
+      <Box>
+        {listOfStories.map((story, index) => (
+          <Box key={index}>
+            <StoryCard story={story} />
+          </Box>
+        ))}
+      </Box>
     </Flex>
   );
 };
