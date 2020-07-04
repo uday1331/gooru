@@ -1,14 +1,12 @@
 import React from "react";
-import { Grid, Flex } from "@chakra-ui/core";
 import {
   MdDashboard,
   MdSettings,
   MdAssessment,
   MdGamepad,
 } from "react-icons/md";
-import { Route } from "react-router-dom";
 
-import { NavBar } from "../navbar";
+import { Template } from "../template";
 
 const navItemList = [
   {
@@ -38,16 +36,5 @@ const navItemList = [
 ];
 
 export const Employer: React.FC = () => {
-  return (
-    <Grid templateColumns="20% 80%">
-      <NavBar navItemList={navItemList} />
-      <Flex>
-        {navItemList.map(({ route, component }, index) => (
-          <Route key={index} path={route}>
-            {component}
-          </Route>
-        ))}
-      </Flex>
-    </Grid>
-  );
+  return <Template navItemList={navItemList} />;
 };

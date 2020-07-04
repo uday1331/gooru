@@ -2,13 +2,7 @@ import React from "react";
 import { Flex, Text } from "@chakra-ui/core";
 
 import { NavItem } from "./NavItem";
-
-export interface NavItemDetails {
-  name: string;
-  logo: React.ReactNode;
-  route: string;
-  component: React.ReactNode;
-}
+import { NavItemDetails } from "../template/Template";
 
 interface NavBarProps {
   navItemList: NavItemDetails[];
@@ -24,7 +18,7 @@ export const NavBar: React.FC<NavBarProps> = ({ navItemList }) => {
     >
       <Flex p={3} pl={5}>
         <Text fontSize="3xl" p={0}>
-          Gooru.
+          Gooru<span style={{ color: "red" }}>.</span>
         </Text>
       </Flex>
       {navItemList.map((navItemDetails, index) => (
