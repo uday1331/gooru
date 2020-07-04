@@ -1,11 +1,13 @@
 import React from "react";
-import { Flex, Heading } from "@chakra-ui/core";
+import { Flex, Text } from "@chakra-ui/core";
 
 import { NavItem } from "./NavItem";
 
 export interface NavItemDetails {
   name: string;
   logo: React.ReactNode;
+  route: string;
+  component: React.ReactNode;
 }
 
 interface NavBarProps {
@@ -15,13 +17,16 @@ interface NavBarProps {
 export const NavBar: React.FC<NavBarProps> = ({ navItemList }) => {
   return (
     <Flex
-      pl={3}
       borderRight="1px solid"
       minHeight="100vh"
       direction="column"
       align="start"
     >
-      <Heading size="sm">Gooru.</Heading>
+      <Flex p={3} pl={5}>
+        <Text fontSize="3xl" p={0}>
+          Gooru.
+        </Text>
+      </Flex>
       {navItemList.map((navItemDetails, index) => (
         <NavItem key={index} details={navItemDetails} />
       ))}
