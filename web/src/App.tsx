@@ -18,6 +18,7 @@ import { EmptyStory, CreateInformation } from "./components/createStory";
 import { DataContext } from "./context";
 import { dummyStory1, dummyStory2 } from "./data";
 import { SceneType } from "./types/scene";
+import { NotFound } from "./components/reusables/NotFound";
 
 const navItemList = [
   {
@@ -70,7 +71,7 @@ const App: React.FC = () => {
     },
   }) => {
     const story = stories.find(({ id: storyId }) => Number(id) === storyId);
-    if (!story) return <div>Error 404 not found</div>;
+    if (!story) return <NotFound />;
     const { scenes } = story;
 
     return (
@@ -106,6 +107,7 @@ const App: React.FC = () => {
             path="/createStory/:id"
             component={CreateStoryTemplateRouter}
           />
+          <Route path="*" exact component={() => <NotFound />} />
         </Switch>
       </Router>
     </DataContext.Provider>
