@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Flex, Text, Image } from "@chakra-ui/core";
+import { Flex, Text, Image, Box } from "@chakra-ui/core";
 import { MdImage, MdVideocam } from "react-icons/md";
 import { RouteComponentProps } from "react-router-dom";
 
@@ -59,9 +59,14 @@ export const CreateInformation: React.FC<CreateInformationProps> = ({
   if (resource) {
     const { type: resourceType, url: resourceUrl } = resource;
     return (
-      <Flex direction="column" align="center">
+      <Flex direction="column" align="center" justify="center">
         {resourceType === ResourceType.IMAGE && (
-          <Image src={resourceUrl} size="80%" />
+          <Box size="80%">
+            <Image
+              src={resourceUrl}
+              style={{ maxWidth: 400, maxHeight: 800 }}
+            />
+          </Box>
         )}
         {resourceType === ResourceType.VIDEO && (
           <>Create video frame or something later</>
