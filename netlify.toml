@@ -1,0 +1,8 @@
+[build]
+  command = "yarn run build"
+  publish="gooru/web/build"
+  base = "gooru"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
