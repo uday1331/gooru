@@ -13,7 +13,7 @@ const dummyStory1: Story = {
   title: "Resolving conflicts in the workplaces",
   creator: dummyUser1,
   assignees: Array(5).fill(dummyUser3),
-  scenes: [dummyScene1, dummyScene2, dummyScene3, dummyScene4],
+  scenes: [dummyScene1, dummyScene2, dummyScene3, dummyScene5],
   lastUpdated: new Date(),
 };
 
