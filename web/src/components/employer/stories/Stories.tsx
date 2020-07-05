@@ -6,6 +6,7 @@ import { dummyStory1, dummyStory2 } from "../../../data";
 import { Story } from "../../../types/story";
 import { SearchBar } from "../../index";
 import { StoryCard } from "./StoryCard.jsx";
+import { Link } from "react-router-dom";
 
 const listOfStories: Story[] = [dummyStory1, dummyStory2];
 
@@ -14,9 +15,11 @@ const StoriesHeading: React.FC = () => (
     <Text fontSize="3xl" p={0}>
       Stories<span style={{ color: "red" }}>.</span>
     </Text>
-    <Button variantColor="indigo" borderRadius={0}>
-      Create story
-    </Button>
+    <Link to="/createStory">
+      <Button variantColor="indigo" borderRadius={0}>
+        Create story
+      </Button>
+    </Link>
   </Flex>
 );
 
