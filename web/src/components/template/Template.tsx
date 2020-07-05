@@ -1,6 +1,5 @@
 import React from "react";
 import { Grid, Flex } from "@chakra-ui/core";
-import { Route } from "react-router-dom";
 
 import { NavBar } from "../.";
 
@@ -13,19 +12,17 @@ export interface NavItemDetails {
 
 interface TemplateProps {
   navItemList: NavItemDetails[];
+  children: React.ReactNode;
 }
 
-export const Template: React.FC<TemplateProps> = ({ navItemList }) => {
+export const Template: React.FC<TemplateProps> = ({
+  navItemList,
+  children,
+}) => {
   return (
     <Grid templateColumns="20% 80%">
       <NavBar navItemList={navItemList} />
-      <Flex>
-        {navItemList.map(({ route, component }, index) => (
-          <Route key={index} path={route}>
-            {component}
-          </Route>
-        ))}
-      </Flex>
+      <Flex>{children}</Flex>
     </Grid>
   );
 };
