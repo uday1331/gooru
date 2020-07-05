@@ -6,12 +6,14 @@ interface BigButtonProps {
   icon: IconType;
   text: string;
   onClick: () => void;
+  children?: React.ReactNode;
 }
 
 export const BigButton: React.FC<BigButtonProps> = ({
   icon,
   text,
   onClick,
+  children,
 }) => {
   return (
     <PseudoBox
@@ -35,6 +37,7 @@ export const BigButton: React.FC<BigButtonProps> = ({
         <Box as={icon} size={20} />
         {text}
       </Flex>
+      {children}
     </PseudoBox>
   );
 };

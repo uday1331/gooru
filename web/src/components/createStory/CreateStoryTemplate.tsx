@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Text, Flex, Box } from "@chakra-ui/core";
+import { Grid, Text, Flex } from "@chakra-ui/core";
 import { ScenesSidebar } from "./ScenesSidebar";
 
 import { Story } from "../../types/story";

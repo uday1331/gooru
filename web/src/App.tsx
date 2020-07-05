@@ -6,17 +6,19 @@ import {
   RouteComponentProps,
   Redirect,
 } from "react-router-dom";
-
-import { Template, Stories, CreateStoryTemplate, Track } from "./components";
 import {
   MdDashboard,
   MdGamepad,
   MdAssessment,
   MdSettings,
 } from "react-icons/md";
-import { EmptyStory } from "./components/createStory";
+
+import { Template, Stories, CreateStoryTemplate, Track } from "./components";
+import { EmptyStory, CreateInformation } from "./components/createStory";
 import { DataContext } from "./context";
 import { dummyStory1, dummyStory2 } from "./data";
+import { SceneType } from "./types/scene";
+import { NotFound } from "./components/reusables/NotFound";
 
 const navItemList = [
   {
@@ -69,22 +71,28 @@ const App: React.FC = () => {
     },
   }) => {
     const story = stories.find(({ id: storyId }) => Number(id) === storyId);
-    if (!story) return <div>Error 404 not found</div>;
+    if (!story) return <NotFound />;
     const { scenes } = story;
 
     return (
       <CreateStoryTemplate story={story}>
         <Switch>
-          <Route exact path={`/createStory/${id}`} component={EmptyStory} />
+          <Route exact path={`/createStory/:id`} component={EmptyStory} />
           {scenes.map((scene, index) => (
             <Route
               key={index}
               exact
-              path={`/createStory/${id}/${index}`}
-              component={() => <>{index}</>}
+              path={`/createStory/:id/${index}`}
+              component={(props: RouteComponentProps<{ id: string }>) =>
+                scene.type === SceneType.INFORMATION ? (
+                  <CreateInformation {...props} scene={scene} />
+                ) : (
+                  <>{"Create <CreateQuestion> component later on"}</>
+                )
+              }
             />
           ))}
-          <Redirect to={`/createStory/${id}`} />
+          <Redirect to={`/createStory/:id`} />
         </Switch>
       </CreateStoryTemplate>
     );
@@ -99,6 +107,7 @@ const App: React.FC = () => {
             path="/createStory/:id"
             component={CreateStoryTemplateRouter}
           />
+          <Route path="*" exact component={() => <NotFound />} />
         </Switch>
       </Router>
     </DataContext.Provider>
