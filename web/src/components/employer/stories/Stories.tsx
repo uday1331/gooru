@@ -22,7 +22,8 @@ const StoriesHeading: React.FC = () => {
         variantColor="indigo"
         borderRadius={0}
         onClick={() => {
-          setStories([...stories, defaultStory]);
+          const newStory = { ...defaultStory, id: stories.length };
+          setStories([...stories, newStory]);
           history.push(`/createStory/${stories.length}/0`);
         }}
       >
