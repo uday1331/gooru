@@ -1,6 +1,5 @@
 import { User, UserRole } from "../types/user";
 import profilePic from "./images/profile_pic.jpeg";
-import { dummyProgress1, dummyProgress2 } from "./progress";
 
 const dummyUser1: User = {
   name: "John Doe",
@@ -14,7 +13,6 @@ const dummyUser2: User = {
   role: UserRole.EMPLOYEE,
   position: "Intern",
   picture: profilePic,
-  trainingProgress: [dummyProgress1, dummyProgress2],
 };
 
 const dummyUser3: User = {
@@ -22,7 +20,6 @@ const dummyUser3: User = {
   role: UserRole.EMPLOYEE,
   position: "Trainee",
   picture: profilePic,
-  trainingProgress: [dummyProgress1, dummyProgress2],
 };
 
 export { dummyUser1, dummyUser2, dummyUser3 };

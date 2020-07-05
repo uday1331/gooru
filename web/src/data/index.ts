@@ -1,2 +1,2 @@
 export { dummyStory1, dummyStory2 } from "./stories";
-export { dummyProgress1, dummyProgress2 } from "./progress";
+export { dummyEmployee1, dummyEmployee2 } from "./employees";

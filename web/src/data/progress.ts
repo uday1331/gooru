@@ -1,13 +1,16 @@
 import { Progress } from "../types/progress";
-import { dummyUser3 } from "./users";
 import { dummyStory1, dummyStory2 } from "./stories";
 
-export const dummyProgress1: Progress = {
+const dummyProgress1: Progress = {
   story: dummyStory1,
   pausedScene: 1,
+  timeSpent: 2.3,
 };
 
-export const dummyProgress2: Progress = {
+const dummyProgress2: Progress = {
   story: dummyStory2,
   pausedScene: 1,
+  timeSpent: 1.8,
 };
+
+export { dummyProgress1, dummyProgress2 };
