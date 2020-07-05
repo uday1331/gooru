@@ -1,19 +1,22 @@
 import React from "react";
-import { Flex, Text, Box, Button } from "@chakra-ui/core";
+import { Flex, Text, Box, Button, useDisclosure } from "@chakra-ui/core";
 import { MdQuestionAnswer, MdInfo } from "react-icons/md";
 
 import { NavItem } from "../navbar";
 import { Story } from "../../types/story";
 import { SceneType } from "../../types/scene";
+import { CreateScenePopup } from "./CreateScenePopup";
 
 interface ScenesSideBarProps {
   story: Story;
 }
 
 export const ScenesSidebar: React.FC<ScenesSideBarProps> = ({ story }) => {
+  const disclosure = useDisclosure();
   const { id: storyId, scenes: scenesList } = story;
 
   return (
+    <>
     <Flex
       borderRight="1px solid"
       minHeight="100vh"
@@ -33,6 +36,9 @@ export const ScenesSidebar: React.FC<ScenesSideBarProps> = ({ story }) => {
             backgroundColor="white"
             borderRadius="0"
             border={`1px solid black`}
+            onClick={() => {
+              disclosure.onOpen();
+            }}
           >
             Add
           </Button>
@@ -57,5 +63,7 @@ export const ScenesSidebar: React.FC<ScenesSideBarProps> = ({ story }) => {
         ))}
       </Flex>
     </Flex>
-  );
+    <CreateScenePopup disclosure={disclosure} />
+    </>
+  )
 };
