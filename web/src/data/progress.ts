@@ -3,7 +3,7 @@ import { dummyStory1, dummyStory2 } from "./stories";
 
 const dummyProgress1: Progress = {
   story: dummyStory1,
-  pausedScene: 1,
+  pausedScene: 4,
   timeSpent: 2.3,
 };
 
