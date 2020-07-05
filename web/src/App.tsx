@@ -42,18 +42,9 @@ const App: React.FC = () => {
     return (
       <Template navItemList={navItemList}>
         <Switch>
-          <Route
-            exact
-            path="/employer/dashboard"
-            component={() => <>Dashboard</>}
-          />
-          <Route exact path="/employer/stories" component={Stories} />
-          <Route exact path="/employer/track" component={() => <>Track</>} />
-          <Route
-            exact
-            path="/employer/settings"
-            component={() => <>Settings</>}
-          />
+          {navItemList.map(({ route, component }, index) => (
+            <Route exact path={route} component={() => component} />
+          ))}
         </Switch>
       </Template>
     );
