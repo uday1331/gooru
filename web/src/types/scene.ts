@@ -16,7 +16,7 @@ interface OptionType {
 export interface Scene {
   type: SceneType;
   title: string;
-  resource: {
+  resource?: {
     type: ResourceType;
     url: string;
   };
