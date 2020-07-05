@@ -7,7 +7,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Template, Stories, CreateStoryTemplate } from "./components";
+import { Template, Stories, CreateStoryTemplate, Track } from "./components";
 import {
   MdDashboard,
   MdGamepad,
@@ -34,7 +34,7 @@ const navItemList = [
   {
     name: "Track",
     logo: <MdAssessment size={30} />,
-    component: <>Track</>,
+    component: <Track />,
     route: "/employer/track",
   },
   {
