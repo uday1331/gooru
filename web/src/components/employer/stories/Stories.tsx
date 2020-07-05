@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { Flex, Text, Button, Box } from "@chakra-ui/core";
-import { MdArrowDropDown } from "react-icons/md";
 import { useHistory } from "react-router-dom";
 
-import { SearchBar } from "../../index";
+import { FilterBar } from "../../search-bar";
 import { StoryCard } from "./StoryCard.jsx";
 import { DataContext } from "../../../context";
 import { defaultStory } from "../../../data/stories";
@@ -33,16 +32,6 @@ const StoriesHeading: React.FC = () => {
   );
 };
 
-const FilterBar: React.FC = () => (
-  <Flex direction="row" justify="space-between" w="100%" mt={8}>
-    <SearchBar placeholder="The story I made yesterday" />
-    <Flex direction="row" align="center" cursor={"pointer"}>
-      <Text color="indigo">Sort by </Text>
-      <MdArrowDropDown />
-    </Flex>
-  </Flex>
-);
-
 export const Stories: React.FC = () => {
   const {
     storyHandler: { stories },
@@ -50,7 +39,7 @@ export const Stories: React.FC = () => {
   return (
     <Flex py={3} px={5} width="100%" direction="column">
       <StoriesHeading />
-      <FilterBar />
+      <FilterBar searchBarPlaceholder={"The story I made yesterday"} />
       <Box>
         {stories.map((story, index) => (
           <Box key={index} my={3}>
