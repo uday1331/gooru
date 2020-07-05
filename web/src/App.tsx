@@ -77,22 +77,22 @@ const App: React.FC = () => {
     return (
       <CreateStoryTemplate story={story}>
         <Switch>
-          <Route exact path={`/createStory/${id}`} component={EmptyStory} />
+          <Route exact path={`/createStory/:id`} component={EmptyStory} />
           {scenes.map((scene, index) => (
             <Route
               key={index}
               exact
-              path={`/createStory/${id}/${index}`}
-              component={() =>
+              path={`/createStory/:id/${index}`}
+              component={(props: RouteComponentProps<{ id: string }>) =>
                 scene.type === SceneType.INFORMATION ? (
-                  <CreateInformation scene={scene} />
+                  <CreateInformation {...props} scene={scene} />
                 ) : (
                   <>{"Create <CreateQuestion> component later on"}</>
                 )
               }
             />
           ))}
-          <Redirect to={`/createStory/${id}`} />
+          <Redirect to={`/createStory/:id`} />
         </Switch>
       </CreateStoryTemplate>
     );
