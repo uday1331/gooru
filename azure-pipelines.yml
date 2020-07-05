@@ -38,10 +38,6 @@ stages:
         archiveType: zip
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
-        InlineScript: | 
-          echo "donuts are the best"
-          echo $(System.DefaultWorkingDirectory)
-          echo $(Build.ArtifactStagingDirectory)/$(Build.BuildId)
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       artifact: drop
 
@@ -67,8 +63,9 @@ stages:
               WebAppName: $(webAppName)
               packageForLinux: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               RuntimeStack: 'NODE|10.10'
-              StartupCommand: 'npm run start'
+              StartupCommand: 'cd web && npm run start'
               ScriptType: 'Inline Script'
               InlineScript: |
+                cd web
                 npm install
                 npm run build --if-present
