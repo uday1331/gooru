@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, Grid, Flex, Avatar, Box } from "@chakra-ui/core";
 import { Employee } from "../../../types/employee";
+import { ProgressBar } from "./ProgressBar";
 
 interface TrackCardProps {
   employee: Employee;
@@ -24,6 +25,17 @@ export const TrackCard = ({ employee }: TrackCardProps) => {
     trainingProgress,
   } = employee;
 
+  let totalNumberOfScenes = 0;
+  let totalScenesPlayed = 0;
+
+  const stories = trainingProgress.map(({ story, pausedScene }) => {
+    totalNumberOfScenes += story.scenes.length;
+    totalScenesPlayed += pausedScene;
+    return { progress: pausedScene / story.scenes.length };
+  });
+
+  const overallProgress = totalScenesPlayed / totalNumberOfScenes;
+
   return (
     <Box border={"1px"} borderColor={"gray.300"} p={"2"}>
       <Grid
@@ -40,12 +52,16 @@ export const TrackCard = ({ employee }: TrackCardProps) => {
             </Box>
           </Flex>
         </Grid>
-        <Grid column={"span 3"}>Progress bar</Grid>
+        <Grid column={"span 3"}>
+          <ProgressBar progress={overallProgress} />
+        </Grid>
 
         <Grid column={"span 2"}>
-          <BoxLayout title={"Stories left"}>
-            <Text fontSize={"2xl"}>3</Text>
-          </BoxLayout>
+          <Flex justifyContent={"center"} w={"100%"}>
+            <BoxLayout title={"Stories left"}>
+              <Text fontSize={"2xl"}>3</Text>
+            </BoxLayout>
+          </Flex>
         </Grid>
       </Grid>
     </Box>
