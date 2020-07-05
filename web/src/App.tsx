@@ -6,17 +6,18 @@ import {
   RouteComponentProps,
   Redirect,
 } from "react-router-dom";
-
-import { Template, Stories, CreateStoryTemplate, Track } from "./components";
 import {
   MdDashboard,
   MdGamepad,
   MdAssessment,
   MdSettings,
 } from "react-icons/md";
-import { EmptyStory } from "./components/createStory";
+
+import { Template, Stories, CreateStoryTemplate, Track } from "./components";
+import { EmptyStory, CreateInformation } from "./components/createStory";
 import { DataContext } from "./context";
 import { dummyStory1, dummyStory2 } from "./data";
+import { SceneType } from "./types/scene";
 
 const navItemList = [
   {
@@ -81,7 +82,13 @@ const App: React.FC = () => {
               key={index}
               exact
               path={`/createStory/${id}/${index}`}
-              component={() => <>{index}</>}
+              component={() =>
+                scene.type === SceneType.INFORMATION ? (
+                  <CreateInformation scene={scene} />
+                ) : (
+                  <>{"Create <CreateQuestion> component later on"}</>
+                )
+              }
             />
           ))}
           <Redirect to={`/createStory/${id}`} />
