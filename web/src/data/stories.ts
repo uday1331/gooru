@@ -18,4 +18,12 @@ const dummyStory2: Story = {
   lastUpdated: new Date(),
 };
 
-export { dummyStory1, dummyStory2 };
+const defaultStory: Story = {
+  title: "New Story",
+  creator: dummyUser1,
+  assignees: [],
+  scenes: [],
+  lastUpdated: new Date(),
+};
+
+export { dummyStory1, dummyStory2, defaultStory };
