@@ -1,4 +1,4 @@
-export { Employer } from "./employer";
-export { Employee } from "./employee";
+export { Stories } from "./employer";
 export { NavBar } from "./navbar";
 export { SearchBar } from "./search-bar";
+export { Template } from "./template";

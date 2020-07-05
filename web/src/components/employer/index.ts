@@ -1,1 +1,1 @@
-export { Employer } from "./Employer";
+export { Stories } from "./stories";
