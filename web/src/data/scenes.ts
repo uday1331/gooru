@@ -1,29 +1,13 @@
-import { Scene, SceneType } from "../types/scene";
+import { Scene, SceneType, ResourceType } from "../types/scene";
 
 const dummyScene1: Scene = {
   type: SceneType.INFORMATION,
-};
-const dummyScene2: Scene = {
-  type: SceneType.INFORMATION,
-};
-const dummyScene3: Scene = {
-  type: SceneType.QUESTION,
-};
-const dummyScene4: Scene = {
-  type: SceneType.INFORMATION,
-};
-const dummyScene5: Scene = {
-  type: SceneType.INFORMATION,
-};
-const dummyScene6: Scene = {
-  type: SceneType.QUESTION,
+  title: "Office",
+  resource: {
+    type: ResourceType.IMAGE,
+    url:
+      "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE2uCzt?ver=eb50&q=90&m=2&h=768&w=1024&b=%23FFFFFFFF&aim=true",
+  },
 };
 
-export {
-  dummyScene1,
-  dummyScene2,
-  dummyScene3,
-  dummyScene4,
-  dummyScene5,
-  dummyScene6,
-};
+export { dummyScene1 };

@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { Template, Stories } from "./components";
-import { CreateStory } from "./components/employer/stories/createStory";
+import { Template, Stories, CreateStoryTemplate } from "./components";
 import {
   MdDashboard,
   MdGamepad,
   MdAssessment,
   MdSettings,
 } from "react-icons/md";
+import { EmptyStory } from "./components/createStory";
 
 const navItemList = [
   {
@@ -50,11 +50,19 @@ const App: React.FC = () => {
     );
   };
 
+  const CreateStoryTemplateRouter = () => {
+    return (
+      <CreateStoryTemplate scenesList={["hello"]}>
+        <Route exact path="/createStory" component={EmptyStory} />
+      </CreateStoryTemplate>
+    );
+  };
+
   return (
     <Router>
       <Switch>
         <Route path="/employer" component={EmployerTemplate} />
-        <Route path="/createStory" component={CreateStory} />
+        <Route path="/createStory" component={CreateStoryTemplateRouter} />
       </Switch>
     </Router>
   );
