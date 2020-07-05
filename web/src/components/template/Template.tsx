@@ -7,7 +7,7 @@ export interface NavItemDetails {
   name: string;
   logo: React.ReactNode;
   route: string;
-  component: React.ReactNode;
+  component?: React.ReactNode;
 }
 
 interface TemplateProps {

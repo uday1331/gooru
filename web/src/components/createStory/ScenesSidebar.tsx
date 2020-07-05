@@ -1,27 +1,32 @@
 import React from "react";
 import { Flex, Text, Box, Button } from "@chakra-ui/core";
+import { MdQuestionAnswer, MdInfo } from "react-icons/md";
+
+import { NavItem } from "../navbar";
+import { Story } from "../../types/story";
+import { SceneType } from "../../types/scene";
 
 interface ScenesSideBarProps {
-  scenesList: any;
+  story: Story;
 }
 
-export const ScenesSidebar: React.FC<ScenesSideBarProps> = ({ scenesList }) => {
+export const ScenesSidebar: React.FC<ScenesSideBarProps> = ({ story }) => {
+  const { id: storyId, scenes: scenesList } = story;
+
   return (
     <Flex
       borderRight="1px solid"
       minHeight="100vh"
       direction="column"
       align="start"
-      p={3}
-      pl={5}
-      pr={5}
+      py={3}
     >
-      <Flex pb={4}>
+      <Flex pb={4} px={6}>
         <Text fontSize="3xl" p={0}>
           Create<span style={{ color: "red" }}>.</span>
         </Text>
       </Flex>
-      <Box width="100%">
+      <Box width="100%" px={6}>
         <Flex justifyContent="space-between" alignItems="center">
           <Text fontSize="lg">Scenes</Text>
           <Button
@@ -33,6 +38,24 @@ export const ScenesSidebar: React.FC<ScenesSideBarProps> = ({ scenesList }) => {
           </Button>
         </Flex>
       </Box>
+      <Flex direction="column" width="100%" py={3}>
+        {scenesList.map(({ title, type }, index) => (
+          <Box key={index}>
+            <NavItem
+              details={{
+                name: title,
+                logo:
+                  type === SceneType.QUESTION ? (
+                    <MdQuestionAnswer size={30} />
+                  ) : (
+                    <MdInfo size={30} />
+                  ),
+                route: `/createStory/${storyId}/${index}`,
+              }}
+            />
+          </Box>
+        ))}
+      </Flex>
     </Flex>
   );
 };

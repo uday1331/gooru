@@ -68,11 +68,12 @@ const App: React.FC = () => {
       params: { id },
     },
   }) => {
-    if (Number(id) >= stories.length) return <div>Error 404 not found</div>;
-    const { scenes } = stories[Number(id)];
+    const story = stories.find(({ id: storyId }) => Number(id) === storyId);
+    if (!story) return <div>Error 404 not found</div>;
+    const { scenes } = story;
 
     return (
-      <CreateStoryTemplate scenesList={scenes}>
+      <CreateStoryTemplate story={story}>
         <Switch>
           <Route exact path={`/createStory/${id}`} component={EmptyStory} />
           {scenes.map((scene, index) => (
