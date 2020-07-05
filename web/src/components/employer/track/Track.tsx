@@ -20,7 +20,7 @@ export const Track: React.FC = () => {
   return (
     <Flex py={3} px={5} width="100%" direction="column">
       <StoriesHeading />
-      <FilterBar searchBarPlaceholder={"The story I played yesterday"} />
+      <FilterBar searchBarPlaceholder={"The story James played yesterday"} />
       <Box>
         {listOfEmployees.map((employee, index) => (
           <Box key={index} my={3}>
