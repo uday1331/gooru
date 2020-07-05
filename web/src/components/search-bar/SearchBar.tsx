@@ -8,7 +8,7 @@ interface SearchBarProps {
 
 export const SearchBar: React.FC<SearchBarProps> = ({ placeholder }) => (
   <InputGroup size="md">
-    <InputAddon children={<MdSearch />} />
+    <InputAddon rounded="0" children={<MdSearch />} />
     <Input rounded="0" placeholder={placeholder} width={300} />
   </InputGroup>
 );

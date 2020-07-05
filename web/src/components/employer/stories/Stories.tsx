@@ -1,27 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Flex, Text, Button, Box } from "@chakra-ui/core";
 import { MdArrowDropDown } from "react-icons/md";
 
-import { dummyStory1, dummyStory2 } from "../../../data";
-import { Story } from "../../../types/story";
 import { SearchBar } from "../../index";
 import { StoryCard } from "./StoryCard.jsx";
 import { Link } from "react-router-dom";
+import { DataContext } from "../../../context";
 
-const listOfStories: Story[] = [dummyStory1, dummyStory2];
-
-const StoriesHeading: React.FC = () => (
-  <Flex direction="row" justify="space-between" w="100%">
-    <Text fontSize="3xl" p={0}>
-      Stories<span style={{ color: "red" }}>.</span>
-    </Text>
-    <Link to="/createStory">
-      <Button variantColor="indigo" borderRadius={0}>
-        Create story
-      </Button>
-    </Link>
-  </Flex>
-);
+const StoriesHeading: React.FC = () => {
+  return (
+    <Flex direction="row" justify="space-between" w="100%">
+      <Text fontSize="3xl" p={0}>
+        Stories<span style={{ color: "red" }}>.</span>
+      </Text>
+      <Link to="/createStory">
+        <Button variantColor="indigo" borderRadius={0}>
+          Create story
+        </Button>
+      </Link>
+    </Flex>
+  );
+};
 
 const FilterBar: React.FC = () => (
   <Flex direction="row" justify="space-between" w="100%" mt={8}>
@@ -34,13 +33,15 @@ const FilterBar: React.FC = () => (
 );
 
 export const Stories: React.FC = () => {
-  console.log({ listOfStories });
+  const {
+    storyHandler: { stories },
+  } = useContext(DataContext);
   return (
     <Flex py={3} px={5} width="100%" direction="column">
       <StoriesHeading />
       <FilterBar />
       <Box>
-        {listOfStories.map((story, index) => (
+        {stories.map((story, index) => (
           <Box key={index} my={3}>
             <StoryCard story={story} />
           </Box>

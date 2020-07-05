@@ -1,5 +1,11 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  RouteComponentProps,
+  Redirect,
+} from "react-router-dom";
 
 import { Template, Stories, CreateStoryTemplate } from "./components";
 import {
@@ -9,6 +15,8 @@ import {
   MdSettings,
 } from "react-icons/md";
 import { EmptyStory } from "./components/createStory";
+import { DataContext } from "./context";
+import { dummyStory1, dummyStory2 } from "./data";
 
 const navItemList = [
   {
@@ -38,33 +46,61 @@ const navItemList = [
 ];
 
 const App: React.FC = () => {
+  const initialStories = [dummyStory1, dummyStory2];
+  const [stories, setStories] = useState(initialStories);
+
   const EmployerTemplate = () => {
     return (
       <Template navItemList={navItemList}>
         <Switch>
           {navItemList.map(({ route, component }, index) => (
-            <Route exact path={route} component={() => component} />
+            <Route key={index} exact path={route} component={() => component} />
           ))}
         </Switch>
       </Template>
     );
   };
 
-  const CreateStoryTemplateRouter = () => {
+  const CreateStoryTemplateRouter: React.FC<RouteComponentProps<{
+    id: string;
+  }>> = ({
+    match: {
+      params: { id },
+    },
+  }) => {
+    if (Number(id) >= stories.length) return <div>Error 404 not found</div>;
+    const { scenes } = stories[Number(id)];
+
     return (
-      <CreateStoryTemplate scenesList={["hello"]}>
-        <Route exact path="/createStory" component={EmptyStory} />
+      <CreateStoryTemplate scenesList={scenes}>
+        <Switch>
+          <Route exact path={`/createStory/${id}`} component={EmptyStory} />
+          {scenes.map((scene, index) => (
+            <Route
+              key={index}
+              exact
+              path={`/createStory/${id}/${index}`}
+              component={() => <>{index}</>}
+            />
+          ))}
+          <Redirect to={`/createStory/${id}`} />
+        </Switch>
       </CreateStoryTemplate>
     );
   };
 
   return (
-    <Router>
-      <Switch>
-        <Route path="/employer" component={EmployerTemplate} />
-        <Route path="/createStory" component={CreateStoryTemplateRouter} />
-      </Switch>
-    </Router>
+    <DataContext.Provider value={{ storyHandler: { stories, setStories } }}>
+      <Router>
+        <Switch>
+          <Route path="/employer" component={EmployerTemplate} />
+          <Route
+            path="/createStory/:id"
+            component={CreateStoryTemplateRouter}
+          />
+        </Switch>
+      </Router>
+    </DataContext.Provider>
   );
 };
 
