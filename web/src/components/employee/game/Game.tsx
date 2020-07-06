@@ -1,26 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { DataContext } from "../../../context";
 import { Box, Flex, Text } from "@chakra-ui/core";
 import { Carousel } from "./Carousel";
 import { InformationScene } from "./InformationScene";
 import { SceneType } from "../../../types/scene";
+import { ScreenControl } from "./ScreenControl";
 
 export const Game: React.FC = () => {
   const {
     gameHandler: { game, setGame },
   } = useContext(DataContext);
 
+  const [thisSceneNumber, setThisSceneNumber] = useState<number>(
+    game?.currentScene || 0
+  );
+
   if (!game) return <>loading</>;
 
   const { story, currentScene, rewardCoins } = game;
   const { title, scenes } = story;
 
-  const onBackClick = () => console.log("back!");
-  const onNextClick = () => console.log("next!");
+  const onBackClick = () => setThisSceneNumber(thisSceneNumber - 1);
+  const onNextClick = () => setThisSceneNumber(thisSceneNumber + 1);
 
-  const thisScene = story.scenes[currentScene];
+  const thisScene = story.scenes[thisSceneNumber];
 
-  const showNext = true;
+  const showBack = thisSceneNumber > 0;
+
+  const showNext =
+    currentScene > thisSceneNumber || thisScene.type === SceneType.INFORMATION;
 
   return (
     <Flex
@@ -46,13 +54,15 @@ export const Game: React.FC = () => {
         </Box>
       </Flex>
 
+      <ScreenControl
+        showBack={showBack}
+        showNext={showNext}
+        onBackClick={onBackClick}
+        onNextClick={onNextClick}
+      />
+
       {thisScene.type === SceneType.INFORMATION ? (
-        <InformationScene
-          scene={thisScene}
-          showNext={showNext}
-          onBackClick={onBackClick}
-          onNextClick={onNextClick}
-        />
+        <InformationScene scene={thisScene} />
       ) : (
         <>question scene</>
       )}
