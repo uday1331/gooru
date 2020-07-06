@@ -9,8 +9,12 @@ import {
 
 import { employeeNavItemList, employerNavItemList } from "./NavItems";
 
-import { CreateStoryTemplate, Template } from "./components";
 import { EmptyStory, CreateInformation } from "./components/createStory";
+import {
+  Template,
+  CreateStoryTemplate,
+  QuestionScene,
+} from "./components";
 import { DataContext } from "./context";
 import { dummyStory1, dummyStory2 } from "./data";
 import { SceneType } from "./types/scene";
@@ -76,7 +80,7 @@ const App: React.FC = () => {
                 scene.type === SceneType.INFORMATION ? (
                   <CreateInformation {...props} scene={scene} />
                 ) : (
-                  <>{"Create <CreateQuestion> component later on"}</>
+                  <QuestionScene {...props} />
                 )
               }
             />
