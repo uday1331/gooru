@@ -14,7 +14,7 @@ import { EmptyStory, CreateInformation } from "./components/createStory";
 import { DataContext } from "./context";
 import { dummyStory1, dummyStory2 } from "./data";
 import { SceneType } from "./types/scene";
-import { NotFound } from "./components/reusables/NotFound";
+import { NotFound } from "./components/reusables";
 import { Game } from "./types/game";
 
 const App: React.FC = () => {
