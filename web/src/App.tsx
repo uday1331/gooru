@@ -1,61 +1,50 @@
 import React, { useState } from "react";
 import {
   BrowserRouter as Router,
-  Switch,
+  Redirect,
   Route,
   RouteComponentProps,
-  Redirect,
+  Switch,
 } from "react-router-dom";
-import {
-  MdDashboard,
-  MdGamepad,
-  MdAssessment,
-  MdSettings,
-} from "react-icons/md";
 
-import { Template, Stories, CreateStoryTemplate, Track } from "./components";
+import { employeeNavItemList, employerNavItemList } from "./NavItems";
+
+import { CreateStoryTemplate, Template } from "./components";
 import { EmptyStory, CreateInformation } from "./components/createStory";
 import { DataContext } from "./context";
 import { dummyStory1, dummyStory2 } from "./data";
 import { SceneType } from "./types/scene";
-import { NotFound } from "./components/reusables/NotFound";
-
-const navItemList = [
-  {
-    name: "Dashboard",
-    logo: <MdDashboard size={30} />,
-    component: <>Dashboard</>,
-    route: "/employer/dashboard",
-  },
-  {
-    name: "Stories",
-    logo: <MdGamepad size={30} />,
-    component: <Stories />,
-    route: "/employer/stories",
-  },
-  {
-    name: "Track",
-    logo: <MdAssessment size={30} />,
-    component: <Track />,
-    route: "/employer/track",
-  },
-  {
-    name: "Settings",
-    logo: <MdSettings size={30} />,
-    component: <>Settings</>,
-    route: "/employer/settings",
-  },
-];
+import { NotFound } from "./components/reusables";
+import { Game } from "./types/game";
 
 const App: React.FC = () => {
   const initialStories = [dummyStory1, dummyStory2];
   const [stories, setStories] = useState(initialStories);
 
+  const defaultGame: Game = {
+    story: dummyStory1,
+    currentScene: 0,
+    rewardCoins: 100,
+  };
+  const [game, setGame] = useState<Game>(defaultGame);
+
   const EmployerTemplate = () => {
     return (
-      <Template navItemList={navItemList}>
+      <Template navItemList={employerNavItemList}>
         <Switch>
-          {navItemList.map(({ route, component }, index) => (
+          {employerNavItemList.map(({ route, component }, index) => (
+            <Route key={index} exact path={route} component={() => component} />
+          ))}
+        </Switch>
+      </Template>
+    );
+  };
+
+  const EmployeeTemplate = () => {
+    return (
+      <Template navItemList={employeeNavItemList}>
+        <Switch>
+          {employeeNavItemList.map(({ route, component }, index) => (
             <Route key={index} exact path={route} component={() => component} />
           ))}
         </Switch>
@@ -99,10 +88,16 @@ const App: React.FC = () => {
   };
 
   return (
-    <DataContext.Provider value={{ storyHandler: { stories, setStories } }}>
+    <DataContext.Provider
+      value={{
+        storyHandler: { stories, setStories },
+        gameHandler: { game, setGame },
+      }}
+    >
       <Router>
         <Switch>
           <Route path="/employer" component={EmployerTemplate} />
+          <Route path="/employee" component={EmployeeTemplate} />
           <Route
             path="/createStory/:id"
             component={CreateStoryTemplateRouter}
