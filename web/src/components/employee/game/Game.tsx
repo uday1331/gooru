@@ -29,9 +29,22 @@ export const Game: React.FC = () => {
       h={"screen"}
       w={"100%"}
     >
-      <Box py={3} px={5}>
+      <Flex
+        w={"100%"}
+        py={3}
+        px={5}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+      >
         <Text fontSize={"3xl"}>{title}</Text>
-      </Box>
+        <Box>
+          <Text
+            fontSize={"lg"}
+            textAlign={"center"}
+          >{`${rewardCoins} coins`}</Text>
+          <Text fontSize={"sm"}>available in this story</Text>
+        </Box>
+      </Flex>
 
       {thisScene.type === SceneType.INFORMATION ? (
         <InformationScene
