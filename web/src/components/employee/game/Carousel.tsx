@@ -8,7 +8,8 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { Box, Flex, Icon, PseudoBox, Text } from "@chakra-ui/core";
-import { Scene } from "../../../types/scene";
+import { ResourceType, Scene } from "../../../types/scene";
+import { imagePlaceholder } from "../../../utilities";
 
 interface CarouselProps {
   scenes: Scene[];
@@ -47,21 +48,23 @@ export const Carousel: React.FC<CarouselProps> = ({ scenes }) => {
                       {title}
                     </Text>
                   </Box>
-                  {resource && (
-                    <img
-                      src={resource.url}
-                      style={{
-                        position: "absolute",
-                        height: "100%",
-                        width: "auto",
-                        top: 0,
-                        left: 0,
-                        overflow: "none",
-                        opacity: "30%",
-                      }}
-                      alt={"screen"}
-                    />
-                  )}
+                  <img
+                    src={
+                      resource?.type === ResourceType.IMAGE
+                        ? resource.url
+                        : imagePlaceholder
+                    }
+                    style={{
+                      position: "absolute",
+                      height: "100%",
+                      width: "auto",
+                      top: 0,
+                      left: 0,
+                      overflow: "none",
+                      opacity: "30%",
+                    }}
+                    alt={"screen"}
+                  />
                 </Flex>
               </Slide>
             ))}
