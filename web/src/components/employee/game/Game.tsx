@@ -5,6 +5,7 @@ import { Carousel } from "./Carousel";
 import { InformationScene } from "./InformationScene";
 import { SceneType } from "../../../types/scene";
 import { ScreenControl } from "./ScreenControl";
+import { QuestionScene } from "./QuestionScene";
 
 export const Game: React.FC = () => {
   const {
@@ -21,7 +22,11 @@ export const Game: React.FC = () => {
   const { title, scenes } = story;
 
   const onBackClick = () => setThisSceneNumber(thisSceneNumber - 1);
-  const onNextClick = () => setThisSceneNumber(thisSceneNumber + 1);
+  const onNextClick = () => {
+    if (thisSceneNumber === currentScene)
+      setGame({ ...game, currentScene: currentScene + 1 });
+    else setThisSceneNumber(thisSceneNumber + 1);
+  };
 
   const thisScene = story.scenes[thisSceneNumber];
 
@@ -64,7 +69,7 @@ export const Game: React.FC = () => {
       {thisScene.type === SceneType.INFORMATION ? (
         <InformationScene scene={thisScene} />
       ) : (
-        <>question scene</>
+        <QuestionScene scene={thisScene} />
       )}
 
       <Box borderTop={"1px"} borderColor={"gray.600"}>
