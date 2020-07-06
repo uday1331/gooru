@@ -18,7 +18,7 @@ export const NavBar: React.FC<NavBarProps> = ({ navItemList }) => {
     >
       <Flex p={3} pl={5}>
         <Text fontSize="3xl" p={0}>
-          Gooru<span style={{ color: "red" }}>.</span>
+          guru<span style={{ color: "red" }}>.</span>
         </Text>
       </Flex>
       {navItemList.map((navItemDetails, index) => (
