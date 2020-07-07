@@ -6,6 +6,8 @@ import { InformationScene } from "./InformationScene";
 import { SceneType } from "../../types/scene";
 import { ScreenControl } from "./ScreenControl";
 import { QuestionScene } from "./QuestionScene";
+import { Title } from "../reusables";
+import { coin } from "../../static";
 
 export const Game: React.FC = () => {
   const {
@@ -39,7 +41,7 @@ export const Game: React.FC = () => {
     <Flex
       direction={"column"}
       justifyContent={"space-between"}
-      h={"screen"}
+      h={"100vh"}
       w={"100%"}
     >
       <Flex
@@ -49,12 +51,16 @@ export const Game: React.FC = () => {
         alignItems={"center"}
         justifyContent={"space-between"}
       >
-        <Text fontSize={"3xl"}>{title}</Text>
-        <Box>
-          <Text
-            fontSize={"lg"}
-            textAlign={"center"}
-          >{`${rewardCoins} coins`}</Text>
+        <Title title={title} />
+        <Box fontWeight={"600"}>
+          <Flex alignItems={"center"} justifyContent={"center"} w={"100%"}>
+            <Text fontSize={"lg"} mr={1}>{`${rewardCoins}`}</Text>
+            <img
+              src={coin}
+              alt={"coin"}
+              style={{ height: "20px", width: "auto" }}
+            />
+          </Flex>
           <Text fontSize={"sm"}>available in this story</Text>
         </Box>
       </Flex>
@@ -72,7 +78,7 @@ export const Game: React.FC = () => {
         <QuestionScene scene={thisScene} />
       )}
 
-      <Box borderTop={"1px"} borderColor={"gray.600"}>
+      <Box borderTop={"1px"} backgroundColor={"revolver.500"}>
         <Carousel scenes={scenes} />
       </Box>
     </Flex>

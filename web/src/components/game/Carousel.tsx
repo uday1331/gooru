@@ -10,6 +10,7 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 import { Box, Flex, Icon, PseudoBox, Text } from "@chakra-ui/core";
 import { ResourceType, Scene } from "../../types/scene";
 import { imagePlaceholder } from "../../utilities";
+import { SvgImage } from "../reusables";
 
 interface CarouselProps {
   scenes: Scene[];
@@ -37,9 +38,6 @@ export const Carousel: React.FC<CarouselProps> = ({ scenes }) => {
                   my={4}
                   mx={"auto"}
                   py={4}
-                  border={"2px"}
-                  borderColor={"indigo.500"}
-                  borderRadius={"6px"}
                   alignItems={"center"}
                   position={"relative"}
                 >
@@ -48,23 +46,18 @@ export const Carousel: React.FC<CarouselProps> = ({ scenes }) => {
                       {title}
                     </Text>
                   </Box>
-                  <img
-                    src={
-                      resource?.type === ResourceType.IMAGE
-                        ? resource.url
-                        : imagePlaceholder
-                    }
-                    style={{
-                      position: "absolute",
-                      height: "100%",
-                      width: "auto",
-                      top: 0,
-                      left: 0,
-                      overflow: "none",
-                      opacity: "30%",
-                    }}
-                    alt={"screen"}
-                  />
+                  {resource?.type === ResourceType.IMAGE && (
+                    <SvgImage
+                      id={`${index}-carousel`}
+                      image={resource.url}
+                      style={{
+                        position: "absolute",
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "12px",
+                      }}
+                    />
+                  )}
                 </Flex>
               </Slide>
             ))}
@@ -78,14 +71,20 @@ export const Carousel: React.FC<CarouselProps> = ({ scenes }) => {
           transform={"translateY(-50%)"}
         >
           <Flex alignItems={"center"} justifyContent={"space-between"} px={"2"}>
-            <PseudoBox _hover={{ color: "indigo.400" }} color={"indigo.500"}>
+            <PseudoBox
+              _hover={{ color: "amaranth.400" }}
+              color={"amaranth.500"}
+            >
               <ButtonBack>
-                <Icon name={"chevron-left"} size={"30px"} />
+                <Icon name={"chevron-left"} size={"40px"} />
               </ButtonBack>
             </PseudoBox>
-            <PseudoBox _hover={{ color: "indigo.400" }} color={"indigo.500"}>
+            <PseudoBox
+              _hover={{ color: "amaranth.400" }}
+              color={"amaranth.500"}
+            >
               <ButtonNext>
-                <Icon name={"chevron-right"} size={"30px"} />
+                <Icon name={"chevron-right"} size={"40px"} />
               </ButtonNext>
             </PseudoBox>
           </Flex>
