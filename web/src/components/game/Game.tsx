@@ -11,7 +11,7 @@ import { coin } from "../../static";
 
 export const Game: React.FC = () => {
   const {
-    gameHandler: { game, setGame },
+    gameHandler: { game },
   } = useContext(DataContext);
 
   const [thisSceneNumber, setThisSceneNumber] = useState<number>(
@@ -20,22 +20,16 @@ export const Game: React.FC = () => {
 
   if (!game) return <>loading</>;
 
-  const { story, currentScene, rewardCoins } = game;
+  const { story, rewardCoins } = game;
   const { title, scenes } = story;
 
   const onBackClick = () => setThisSceneNumber(thisSceneNumber - 1);
-  const onNextClick = () => {
-    if (thisSceneNumber === currentScene)
-      setGame({ ...game, currentScene: currentScene + 1 });
-    else setThisSceneNumber(thisSceneNumber + 1);
-  };
+  const onNextClick = () => setThisSceneNumber(thisSceneNumber + 1);
 
   const thisScene = story.scenes[thisSceneNumber];
 
   const showBack = thisSceneNumber > 0;
-
-  const showNext =
-    currentScene > thisSceneNumber || thisScene.type === SceneType.INFORMATION;
+  const showNext = thisSceneNumber < scenes.length - 1;
 
   return (
     <Flex

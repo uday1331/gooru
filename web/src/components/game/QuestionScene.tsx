@@ -9,11 +9,11 @@ interface QuestionScene {
 }
 
 export const QuestionScene: FC<QuestionScene> = ({ scene }) => {
-  const { title, resource, question, options, correctOption } = scene;
+  const { title, resource, question, options } = scene;
 
   const [height, setHeight] = useState<number>(489);
   const box = useCallback(
-    node => setHeight(node.getBoundingClientRect().height),
+    node => node && setHeight(node.getBoundingClientRect().height),
     []
   );
 

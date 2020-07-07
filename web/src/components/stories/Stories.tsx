@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Flex, Text, Button, Box, PseudoBox } from "@chakra-ui/core";
+import { Flex, Text, Button, Box } from "@chakra-ui/core";
 import { useHistory } from "react-router-dom";
 
 import { FilterBar } from "../search-bar";

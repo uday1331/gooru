@@ -1,5 +1,5 @@
 import React from "react";
-import { PseudoBox, Avatar, Text, Flex, Box } from "@chakra-ui/core";
+import { Avatar, Text, Flex, Box } from "@chakra-ui/core";
 import { dummyUser1 } from "../../data/users";
 
 export const ProfileSection: React.FC = () => (

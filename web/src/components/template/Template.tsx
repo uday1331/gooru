@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Flex, Box } from "@chakra-ui/core";
+import { Grid, Flex } from "@chakra-ui/core";
 
 import { NavBar } from "../.";
 

@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
-import { DataContext } from "../../context";
+// import { DataContext } from "../../context";
 import {
   Box,
   Flex,
@@ -19,10 +19,10 @@ export const QuestionScene: React.FC<RouteComponentProps<{ id: string }>> = ({
     params: { id },
   },
 }) => {
-  const {
-    storyHandler: { stories, setStories },
-  } = useContext(DataContext);
-  const [image, setImage] = useState(null);
+  // const {
+  //   storyHandler: { stories, setStories },
+  // } = useContext(DataContext);
+  const [image] = useState(null);
 
   return (
     <Box
