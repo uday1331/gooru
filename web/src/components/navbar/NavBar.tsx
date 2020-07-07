@@ -14,8 +14,8 @@ export const NavBar: React.FC<NavBarProps> = ({ navItemList }) => {
     <Flex minHeight="100vh" direction="column">
       <Flex
         w={"100%"}
-        p={3}
-        pl={5}
+        px={8}
+        py={6}
         backgroundColor={"amaranth.500"}
         borderTopRightRadius={20}
         alignItems={"center"}
@@ -33,7 +33,13 @@ export const NavBar: React.FC<NavBarProps> = ({ navItemList }) => {
             style={{ height: "42px", width: "auto" }}
           />
         </Flex>
-        <Text fontSize={"3xl"} color={"white"} mx={4}>
+        <Text
+          fontSize={"4xl"}
+          color={"white"}
+          mx={4}
+          fontFamily="Pacifico"
+          pb={3}
+        >
           Guru
         </Text>
       </Flex>
@@ -42,6 +48,7 @@ export const NavBar: React.FC<NavBarProps> = ({ navItemList }) => {
         w={"100%"}
         backgroundColor={"revolver.500"}
         color={"white"}
+        pt={6}
       >
         {navItemList.map((navItemDetails, index) => (
           <NavItem key={index} details={navItemDetails} />

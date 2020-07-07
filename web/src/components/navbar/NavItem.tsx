@@ -18,11 +18,14 @@ export const NavItem: React.FC<NavItemProps> = ({
       <PseudoBox
         backgroundColor={pathname === route ? "white" : "inherit"}
         color={pathname === route ? "revolver.500" : "inherit"}
-        borderRadius={"10%"}
+        borderRadius={"20px 0px 0px 20px"}
         _hover={{
           backgroundColor: "voodoo.500",
           color: "white",
         }}
+        px={6}
+        py={1}
+        ml={2}
       >
         <Flex
           alignItems={"center"}
@@ -30,10 +33,10 @@ export const NavItem: React.FC<NavItemProps> = ({
           color={"inherit"}
           backgroundColor={"inherit"}
         >
-          <Flex p={0} color={"inherit"}>
+          <Flex pr={3} color={"inherit"}>
             {logo}
           </Flex>
-          <Text fontSize="md" mx={2}>
+          <Text fontSize="2xl" mx={2}>
             {name}
           </Text>
         </Flex>
