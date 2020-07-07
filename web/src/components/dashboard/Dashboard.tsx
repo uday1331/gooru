@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import { Box, PseudoBox, Text } from "@chakra-ui/core";
 import { ActivityBox, ActivityBoxProps } from "./ActivityBox";
 import { Title } from "../reusables";
@@ -6,8 +6,14 @@ import { dummyUser1 } from "../../data/users";
 import { dummyStory1 } from "../../data";
 import moment from "moment";
 import { StoryCard } from "./StoryCard";
+import { DataContext } from "../../context";
+import { Carousel } from "./Carousel";
 
 export const Dashboard: FC = () => {
+  const {
+    storyHandler: { stories },
+  } = useContext(DataContext);
+
   const { picture, name } = dummyUser1;
   const { title: storyTitle } = dummyStory1;
   const activities: ActivityBoxProps[] = [
@@ -23,7 +29,7 @@ export const Dashboard: FC = () => {
   }));
 
   return (
-    <Box color={"revolver.500"} px={8} py={1}>
+    <Box color={"revolver.500"} px={8} py={1} w={"100%"}>
       <Box my={3}>
         <Title title={"Dashboard"} />
       </Box>
@@ -63,7 +69,19 @@ export const Dashboard: FC = () => {
           />
         </Box>
         <Box>
-          <StoryCard story={dummyStory1} />
+          <Carousel stories={Array(4).fill(stories[0])} />
+        </Box>
+      </Box>
+
+      <Box my={8}>
+        <Box my={3}>
+          <Title
+            title={"Recommended for you"}
+            style={{ fontSize: "xl", fontWeight: "500" }}
+          />
+        </Box>
+        <Box>
+          <Carousel stories={stories} />
         </Box>
       </Box>
     </Box>

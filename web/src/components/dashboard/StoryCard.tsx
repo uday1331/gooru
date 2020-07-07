@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Story } from "../../types/story";
-import { Avatar, Box, Flex, Text } from "@chakra-ui/core";
+import { Avatar, Box, Flex, PseudoBox, Text } from "@chakra-ui/core";
 import { SvgImage } from "../reusables";
 import { fixThings } from "../../static";
 import { ThumbsUp } from "react-feather";
@@ -16,7 +16,13 @@ export const StoryCard: FC<StoryProps> = ({
   },
 }) => {
   return (
-    <Box w={"324px"} h={"211px"} borderRadius={10} position={"relative"}>
+    <PseudoBox
+      w={"324px"}
+      h={"211px"}
+      borderRadius={10}
+      position={"relative"}
+      _hover={{ cursor: "pointer" }}
+    >
       <SvgImage
         id={id}
         image={fixThings}
@@ -59,11 +65,11 @@ export const StoryCard: FC<StoryProps> = ({
             <Text mx={2}>{name}</Text>
           </Flex>
           <Flex alignItems={"center"}>
-            <Text>256</Text>
+            <Text mx={2}>256</Text>
             <ThumbsUp size={"20px"} />
           </Flex>
         </Flex>
       </Flex>
-    </Box>
+    </PseudoBox>
   );
 };
