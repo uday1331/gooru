@@ -10,11 +10,7 @@ import {
 import { employeeNavItemList, employerNavItemList } from "./NavItems";
 
 import { EmptyStory, CreateInformation } from "./components/createStory";
-import {
-  Template,
-  CreateStoryTemplate,
-  QuestionScene,
-} from "./components";
+import { Template, CreateStoryTemplate, QuestionScene } from "./components";
 import { DataContext } from "./context";
 import { dummyStory1, dummyStory2 } from "./data";
 import { SceneType } from "./types/scene";
