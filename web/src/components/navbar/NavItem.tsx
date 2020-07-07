@@ -36,7 +36,7 @@ export const NavItem: React.FC<NavItemProps> = ({
           <Flex pr={3} color={"inherit"}>
             {logo}
           </Flex>
-          <Text fontSize="2xl" mx={2}>
+          <Text fontSize="lg" mx={2}>
             {name}
           </Text>
         </Flex>

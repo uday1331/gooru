@@ -20,7 +20,7 @@ export const Template: React.FC<TemplateProps> = ({
   children,
 }) => {
   return (
-    <Grid templateColumns="20% 80%">
+    <Grid templateColumns="17% 83%">
       <NavBar navItemList={navItemList} />
       <Flex>{children}</Flex>
     </Grid>
