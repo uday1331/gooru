@@ -1,1 +1,1 @@
-export { guru } from "./images";
+export { guru, fixThings } from "./images";
