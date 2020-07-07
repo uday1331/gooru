@@ -4,6 +4,7 @@ import { guru } from "../../static";
 
 import { NavItem } from "./NavItem";
 import { NavItemDetails } from "../template/Template";
+import { ProfileSection } from "./ProfileSection";
 
 interface NavBarProps {
   navItemList: NavItemDetails[];
@@ -11,11 +12,11 @@ interface NavBarProps {
 
 export const NavBar: React.FC<NavBarProps> = ({ navItemList }) => {
   return (
-    <Flex minHeight="100vh" direction="column">
+    <Flex direction="column" h="100vh">
       <Flex
         w={"100%"}
+        h="15%"
         px={8}
-        py={6}
         backgroundColor={"amaranth.500"}
         borderTopRightRadius={20}
         alignItems={"center"}
@@ -49,10 +50,14 @@ export const NavBar: React.FC<NavBarProps> = ({ navItemList }) => {
         backgroundColor={"revolver.500"}
         color={"white"}
         pt={6}
+        h="85%"
       >
-        {navItemList.map((navItemDetails, index) => (
-          <NavItem key={index} details={navItemDetails} />
-        ))}
+        <Box h={"85%"}>
+          {navItemList.map((navItemDetails, index) => (
+            <NavItem key={index} details={navItemDetails} />
+          ))}
+        </Box>
+        <ProfileSection />
       </Box>
     </Flex>
   );

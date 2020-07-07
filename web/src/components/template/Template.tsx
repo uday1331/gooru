@@ -22,7 +22,9 @@ export const Template: React.FC<TemplateProps> = ({
   return (
     <Grid templateColumns="17% 83%">
       <NavBar navItemList={navItemList} />
-      <Flex>{children}</Flex>
+      <Flex overflowX="scroll" maxHeight="100vh">
+        {children}
+      </Flex>
     </Grid>
   );
 };

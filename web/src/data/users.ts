@@ -4,7 +4,7 @@ import profilePic from "./images/profile_pic.jpeg";
 const dummyUser1: User = {
   name: "John Doe",
   role: UserRole.EMPLOYER,
-  position: "Senior Market Risk Analyst",
+  position: "Managing Director",
   picture: profilePic,
 };
 
