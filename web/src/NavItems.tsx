@@ -1,34 +1,29 @@
 import React from "react";
-import {
-  MdAssessment,
-  MdDashboard,
-  MdGamepad,
-  MdSettings,
-} from "react-icons/all";
+import { Airplay, Book, Activity, Settings } from "react-feather";
 import { Stories, Track } from "./components";
 
 export const NavItemList = [
   {
     name: "Dashboard",
-    logo: <MdDashboard size={30} />,
+    logo: <Airplay size={"18px"} />,
     component: <>Dashboard</>,
     route: "/dashboard",
   },
   {
     name: "Stories",
-    logo: <MdGamepad size={30} />,
+    logo: <Book size={"18px"} />,
     component: <Stories />,
     route: "/stories",
   },
   {
     name: "Track",
-    logo: <MdAssessment size={30} />,
+    logo: <Activity size={"18px"} />,
     component: <Track />,
     route: "/track",
   },
   {
     name: "Settings",
-    logo: <MdSettings size={30} />,
+    logo: <Settings size={"18px"} />,
     component: <>Settings</>,
     route: "/settings",
   },

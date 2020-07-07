@@ -1,0 +1,1 @@
+export { guru } from "./images";
