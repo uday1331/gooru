@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Flex, Text } from "@chakra-ui/core";
 
-import { dummyEmployee1, dummyEmployee2 } from "../../../data";
-import { FilterBar } from "../../search-bar";
+import { dummyEmployee1, dummyEmployee2 } from "../../data";
+import { FilterBar } from "../search-bar";
 import { TrackCard } from "./TrackCard";
-import { Employee } from "../../../types/employee";
+import { Employee } from "../../types/employee";
 
 const listOfEmployees: Employee[] = [dummyEmployee1, dummyEmployee2];
 

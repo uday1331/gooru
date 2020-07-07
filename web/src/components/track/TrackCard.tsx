@@ -9,7 +9,7 @@ import {
   PseudoBox,
   Text,
 } from "@chakra-ui/core";
-import { Employee } from "../../../types/employee";
+import { Employee } from "../../types/employee";
 import { ProgressBar } from "./ProgressBar";
 
 interface TrackCardProps {

@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import { DataContext } from "../../../context";
+import { DataContext } from "../../context";
 import { Box, Flex, Text } from "@chakra-ui/core";
 import { Carousel } from "./Carousel";
 import { InformationScene } from "./InformationScene";
-import { SceneType } from "../../../types/scene";
+import { SceneType } from "../../types/scene";
 import { ScreenControl } from "./ScreenControl";
 import { QuestionScene } from "./QuestionScene";
 

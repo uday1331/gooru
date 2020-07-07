@@ -1,5 +1,5 @@
 import React from "react";
-import { Story } from "../../../types/story";
+import { Story } from "../../types/story";
 import { Text, Grid, Flex, Avatar, AvatarGroup } from "@chakra-ui/core";
 import moment from "moment";
 
