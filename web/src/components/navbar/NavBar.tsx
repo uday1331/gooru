@@ -38,7 +38,7 @@ export const NavBar: React.FC<NavBarProps> = ({ navItemList }) => {
           color={"white"}
           mx={4}
           fontFamily="Pacifico"
-          pb={3}
+          pb={2}
         >
           Guru
         </Text>
