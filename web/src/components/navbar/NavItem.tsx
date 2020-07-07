@@ -14,25 +14,25 @@ export const NavItem: React.FC<NavItemProps> = ({
   const { pathname } = useLocation();
 
   return (
-    <Link to={route} style={{ width: "100%" }}>
+    <Link to={route}>
       <PseudoBox
-        backgroundColor={pathname === route ? "indigo.500" : "white"}
-        color={pathname === route ? "white" : "indigo.500"}
+        backgroundColor={pathname === route ? "white" : "inherit"}
+        color={pathname === route ? "revolver.500" : "inherit"}
+        borderRadius={"10%"}
         _hover={{
-          backgroundColor: "indigo.400",
+          backgroundColor: "voodoo.500",
           color: "white",
         }}
       >
         <Flex
-          direction="row"
-          justify="start"
-          align="center"
+          alignItems={"center"}
           p={3}
-          pl={5}
           color={"inherit"}
           backgroundColor={"inherit"}
         >
-          <Flex p={0}>{logo}</Flex>
+          <Flex p={0} color={"inherit"}>
+            {logo}
+          </Flex>
           <Text fontSize="md" mx={2}>
             {name}
           </Text>
