@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { ResourceType, Scene } from "../../types/scene";
 import { Flex, Text } from "@chakra-ui/core";
-import { SvgImage } from "../reusables/SvgImage";
+import { SvgImage } from "../reusables";
 
 interface InformationScene {
   scene: Scene;
@@ -18,7 +18,7 @@ export const InformationScene: FC<InformationScene> = ({ scene }) => {
       alignItems={"center"}
       justifyContent={"center"}
     >
-      <Text fontSize={"xl"} my={2}>
+      <Text fontSize={"xl"} fontWeight={"bold"} color={"revolver.500"} my={2}>
         {title}
       </Text>
 
@@ -28,7 +28,7 @@ export const InformationScene: FC<InformationScene> = ({ scene }) => {
           image={resource.url}
           style={{
             height: "450px",
-            width: "80%",
+            width: "60%",
             borderRadius: "10px",
           }}
         />
