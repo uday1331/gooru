@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { ResourceType, Scene } from "../../../types/scene";
+import { ResourceType, Scene } from "../../types/scene";
 import { Flex, Text } from "@chakra-ui/core";
-import { SvgImage } from "../../reusables/SvgImage";
+import { SvgImage } from "../reusables/SvgImage";
 
 interface InformationScene {
   scene: Scene;

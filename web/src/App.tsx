@@ -7,50 +7,40 @@ import {
   Switch,
 } from "react-router-dom";
 
-import { employeeNavItemList, employerNavItemList } from "./NavItems";
+import { NavItemList } from "./NavItems";
 
 import { EmptyStory, CreateInformation } from "./components/createStory";
 import {
   Template,
   CreateStoryTemplate,
   QuestionScene,
+  Game,
 } from "./components";
 import { DataContext } from "./context";
 import { dummyStory1, dummyStory2 } from "./data";
 import { SceneType } from "./types/scene";
+import { Game as GameType } from "./types/game";
 import { NotFound } from "./components/reusables";
-import { Game } from "./types/game";
 
 const App: React.FC = () => {
   const initialStories = [dummyStory1, dummyStory2];
   const [stories, setStories] = useState(initialStories);
 
-  const defaultGame: Game = {
+  const defaultGame: GameType = {
     story: dummyStory1,
     currentScene: 0,
     rewardCoins: 100,
   };
-  const [game, setGame] = useState<Game>(defaultGame);
+  const [game, setGame] = useState<GameType>(defaultGame);
 
-  const EmployerTemplate = () => {
+  const NavTemplate = () => {
     return (
-      <Template navItemList={employerNavItemList}>
+      <Template navItemList={NavItemList}>
         <Switch>
-          {employerNavItemList.map(({ route, component }, index) => (
+          {NavItemList.map(({ route, component }, index) => (
             <Route key={index} exact path={route} component={() => component} />
           ))}
-        </Switch>
-      </Template>
-    );
-  };
-
-  const EmployeeTemplate = () => {
-    return (
-      <Template navItemList={employeeNavItemList}>
-        <Switch>
-          {employeeNavItemList.map(({ route, component }, index) => (
-            <Route key={index} exact path={route} component={() => component} />
-          ))}
+          <Redirect to={"/"} />
         </Switch>
       </Template>
     );
@@ -100,12 +90,12 @@ const App: React.FC = () => {
     >
       <Router>
         <Switch>
-          <Route path="/employer" component={EmployerTemplate} />
-          <Route path="/employee" component={EmployeeTemplate} />
           <Route
             path="/createStory/:id"
             component={CreateStoryTemplateRouter}
           />
+          <Route path={"/game"} component={Game} />
+          <Route path="/" component={NavTemplate} />
           <Route path="*" exact component={() => <NotFound />} />
         </Switch>
       </Router>

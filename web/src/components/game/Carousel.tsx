@@ -8,8 +8,8 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { Box, Flex, Icon, PseudoBox, Text } from "@chakra-ui/core";
-import { ResourceType, Scene } from "../../../types/scene";
-import { imagePlaceholder } from "../../../utilities";
+import { ResourceType, Scene } from "../../types/scene";
+import { imagePlaceholder } from "../../utilities";
 
 interface CarouselProps {
   scenes: Scene[];

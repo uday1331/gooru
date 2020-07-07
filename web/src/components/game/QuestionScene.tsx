@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Scene } from "../../../types/scene";
+import { Scene } from "../../types/scene";
 import { Flex, Text } from "@chakra-ui/core";
 
 interface QuestionScene {

@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { Flex, Text, Button, Box } from "@chakra-ui/core";
 import { useHistory } from "react-router-dom";
 
-import { FilterBar } from "../../search-bar";
-import { StoryCard } from "./StoryCard.jsx";
-import { DataContext } from "../../../context";
-import { defaultStory } from "../../../data/stories";
+import { FilterBar } from "../search-bar";
+import { StoryCard } from "./StoryCard";
+import { DataContext } from "../../context";
+import { defaultStory } from "../../data/stories";
 
 const StoriesHeading: React.FC = () => {
   const history = useHistory();
