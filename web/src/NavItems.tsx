@@ -1,12 +1,12 @@
 import React from "react";
 import { Airplay, Book, Activity, Settings } from "react-feather";
-import { Stories, Track } from "./components";
+import { Dashboard, Stories, Track } from "./components";
 
 export const NavItemList = [
   {
     name: "Dashboard",
     logo: <Airplay size={"18px"} />,
-    component: <>Dashboard</>,
+    component: <Dashboard />,
     route: "/dashboard",
   },
   {

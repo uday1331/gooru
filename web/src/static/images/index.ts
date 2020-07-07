@@ -1,2 +1,4 @@
 import guru from "./guru.svg";
-export { guru };
+import fixThings from "./fix_things.jpg";
+
+export { guru, fixThings };
