@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Avatar, Text, Flex } from "@chakra-ui/core";
+import { Avatar, Flex, Text } from "@chakra-ui/core";
 import moment from "moment";
 
 export interface ActivityBoxProps {

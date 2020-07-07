@@ -5,7 +5,6 @@ import { Title } from "../reusables";
 import { dummyUser1 } from "../../data/users";
 import { dummyStory1 } from "../../data";
 import moment from "moment";
-import { StoryCard } from "./StoryCard";
 import { DataContext } from "../../context";
 import { Carousel } from "./Carousel";
 
