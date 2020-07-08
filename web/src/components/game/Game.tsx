@@ -55,7 +55,7 @@ export const Game: React.FC = () => {
               style={{ height: "20px", width: "auto" }}
             />
           </Flex>
-          <Text fontSize={"sm"}>available in this story</Text>
+          <Text fontSize={"sm"}>available in this training</Text>
         </Box>
       </Flex>
 
