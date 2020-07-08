@@ -1,13 +1,19 @@
 import { Story } from "../types/story";
 import { dummyUser1, dummyUser2, dummyUser3 } from "./users";
-import { dummyScene1, dummyScene2 } from "./scenes";
+import {
+  dummyScene1,
+  dummyScene2,
+  dummyScene3,
+  dummyScene4,
+  dummyScene5,
+} from "./scenes";
 
 const dummyStory1: Story = {
   id: 0,
   title: "Resolving conflicts in the workplaces",
   creator: dummyUser1,
   assignees: Array(5).fill(dummyUser3),
-  scenes: [dummyScene1, dummyScene2],
+  scenes: [dummyScene1, dummyScene2, dummyScene3, dummyScene4, dummyScene5],
   lastUpdated: new Date(),
 };
 

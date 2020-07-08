@@ -40,8 +40,17 @@ export const Carousel: React.FC<CarouselProps> = ({ scenes }) => {
                   alignItems={"center"}
                   position={"relative"}
                 >
-                  <Box zIndex={10} w={"100%"} backgroundColor={"white"}>
-                    <Text fontWeight={"bold"} textAlign={"center"}>
+                  <Box
+                    zIndex={10}
+                    w={"100%"}
+                    backgroundColor={"white"}
+                    overflow={"hidden"}
+                  >
+                    <Text
+                      fontWeight={"bold"}
+                      fontSize={"sm"}
+                      textAlign={"center"}
+                    >
                       {title}
                     </Text>
                   </Box>
